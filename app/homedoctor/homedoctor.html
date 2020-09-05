@@ -1,0 +1,29 @@
+<h1>Home doctor</h1>
+
+<div align="center">
+    <table id="customers" ng-controller="HomedoctorCtrl">
+
+        <tr>
+            <td></td>
+            <td><input ng-model="nameSearch" type="text"/></td>
+            <td><input ng-model="extRefSearch" type="text"/></td>
+            <td><input ng-model="phoneSearch" type="text"/></td>
+            <td><input type="button" value="Search" ng-click="searchClick()"/></td>
+        </tr>
+
+        <tr>
+            <th>Num</th>
+            <th>Name</th>
+            <th>External reference</th>
+            <th>Phone number</th>
+        </tr>
+
+        <tr ng-repeat="oneRec in homeDoctorArray track by $index">
+            <td>{{$index + 1}}</td>
+            <td>{{oneRec.name}}</td>
+            <td>{{oneRec.external_ref}}</td>
+            <td>{{oneRec.phone}}</td>
+        </tr>
+    </table>
+</div>
+

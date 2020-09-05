@@ -1,0 +1,38 @@
+<h1>Home doctor</h1>
+
+<div align="center">
+    <table id="customers" ng-controller="UserlistCtrl">
+        <tr>
+            <td></td>
+            <td><input ng-model="nameSearch" type="text"/></td>
+            <td><input ng-model="addressSearch" type="text"/></td>
+            <td><input ng-model="emailSearch" type="text"/></td>
+            <td><input ng-model="phoneSearch" type="text"/></td>
+            <td><input ng-model="userTypeSearch" type="text"/></td>
+            <td><input ng-model="homeDoctorSearch" type="text"/></td>
+            <td><input type="button" value="Search" ng-click="searchClick()"/></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Num</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>User Type</th>
+            <th>Home Doctor</th>
+        </tr>
+        <tr ng-repeat="user in userArray track by $index">
+            <td>{{$index + 1}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.user_type}}</td>
+            <td>{{getHomeDoctorNameById(homeDoctorArray, user.home_doctor_id)}}</td>
+            <td><input type="button" value="Delete" ng-click="deleteClick(user.user_pk)"/></td>
+            <td><input type="button" value="Update" ng-click=""/></td>
+        </tr>
+    </table>
+</div>
+
