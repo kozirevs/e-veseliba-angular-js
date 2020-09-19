@@ -9,8 +9,18 @@ angular.module('myApp.user', ['ngRoute'])
         });
     }])
 
-    .controller('UserCtrl', ['$scope', '$http',
-        function ($scope, $httpClient) {
+    .controller('UserCtrl', ['$scope', '$http', '$routeParams',
+        function ($scope, $httpClient, $routeParams) {
+
+            $scope.action = "";
+            var action = $routeParams.action;
+            var id = $routeParams.id;
+
+            if(action === 'edit') {
+                $scope.action = "Edit";
+            } else {
+                $scope.action = "Register";
+            }
 
             $scope.homeDoctorArray = [];
 
@@ -41,7 +51,7 @@ angular.module('myApp.user', ['ngRoute'])
                         if (response.data != null && response.data.result === "SUCCESS") {
                             window.location.href = "#!/userlist";
                         } else {
-                            if(response.data.errorType === "ERROR") {
+                            if (response.data.errorType === "ERROR") {
                                 document.getElementById("userRegistrationWarning").style.display = 'none';
 
                                 document.getElementById("userRegistrationError").style.display = 'block';

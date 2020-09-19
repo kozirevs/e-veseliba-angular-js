@@ -1,4 +1,4 @@
-<h1>Home doctor</h1>
+<h1>Users</h1>
 
 <div align="center">
     <table id="customers" ng-controller="UserlistCtrl">
@@ -31,7 +31,7 @@
             <td>{{user.user_type}}</td>
             <td>{{getHomeDoctorNameById(homeDoctorArray, user.home_doctor_id)}}</td>
             <td><input type="button" value="Delete" ng-click="deleteClick(user.user_pk)"/></td>
-            <td><input type="button" value="Update" ng-click=""/></td>
+            <td><input type="button" value="Update" ng-click="redirectEdit(user.user_pk)"/></td>
         </tr>
     </table>
 </div>
